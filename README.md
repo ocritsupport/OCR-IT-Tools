@@ -10,9 +10,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/versión-1.2.1-0BBBC5" alt="versión">
+  <img src="https://img.shields.io/badge/versión-1.3.0-0BBBC5" alt="versión">
   <img src="https://img.shields.io/badge/Android-8.0%2B-006B78" alt="Android 8.0+">
-  <img src="https://img.shields.io/badge/tamaño-16%20MB-D29371" alt="tamaño">
+  <img src="https://img.shields.io/badge/tamaño-15.5%20MB-D29371" alt="tamaño">
 </p>
 
 ---
@@ -22,6 +22,16 @@
 El instalador está en la sección **[Releases](../../releases)**: descarga el `.apk` en el
 teléfono y ábrelo. Android pedirá permiso para instalar desde el navegador o el gestor de
 archivos la primera vez (*Instalar aplicaciones desconocidas*).
+
+### Comprobar que el instalador es auténtico
+
+Todas las versiones van firmadas con la misma clave de OCR IT Support. Su huella es:
+
+```
+SHA-256  0F:13:BA:80:AA:07:E4:04:50:2A:04:55:6A:16:A7:73:49:C9:44:58:2C:A5:AA:E0:11:B2:1E:A6:D1:6A:42:23
+```
+
+Cada publicación incluye además el `SHA-256` del propio fichero en sus notas.
 
 ## Las 13 herramientas
 
