@@ -44,7 +44,7 @@ Cada publicación incluye además el `SHA-256` del propio fichero en sus notas.
 | **Test de velocidad** | Bajada, subida, latencia y jitter, con cuatro conexiones en paralelo |
 | **SSH** | Terminal con teclas de control (TAB, Ctrl+C, flechas) y servidores guardados |
 | **Telnet / TCP** | Consola Telnet y modo crudo para hablar directamente con un puerto |
-| **Ficheros** | Cliente tipo WinSCP: SFTP, FTP, FTPS y SMB, con descargas, subidas, renombrado y carpetas |
+| **Ficheros** | Cliente tipo WinSCP: SFTP, SCP, FTP, FTPS y SMB, con descargas, subidas, renombrado y carpetas |
 | **Mi red** | Wi-Fi (SSID, canal, banda, señal), direccionamiento, DNS, MTU, IP pública y operador |
 | **DNS y WHOIS** | Consultas por tipo (A, MX, TXT, PTR, SRV…) contra el servidor que elijas |
 | **Wake-on-LAN** | Encendido remoto de equipos, con lista guardada |
@@ -67,6 +67,7 @@ También se puede guardar donde se quiera.
 | Protocolo | Para qué |
 |---|---|
 | **SFTP** | Servidores Linux, NAS, routers con SSH |
+| **SCP** | Equipos con SSH pero sin subsistema SFTP: switches, aparatos empotrados |
 | **FTP / FTPS** | Servidores clásicos; el FTPS acepta certificados autofirmados |
 | **SMB2 / SMB3** | Carpetas compartidas de Windows y de NAS |
 
@@ -75,6 +76,21 @@ También se puede guardar donde se quiera.
 Las descargas y subidas usan el selector de documentos de Android, así que la aplicación
 **no pide ningún permiso de almacenamiento** y puedes guardar en Descargas, en la tarjeta
 o en Drive indistintamente.
+
+## Actualizaciones
+
+Al abrir la aplicación se comprueba si hay una versión más reciente publicada aquí. Si la
+hay, aparece un aviso en la pantalla de inicio con los cambios, y se descarga e instala
+desde la propia aplicación. La consulta no envía ningún dato.
+
+## Seguridad
+
+- **SSH y SFTP** memorizan la clave del servidor en la primera conexión y muestran su
+  huella. Si en una conexión posterior la clave no coincide, la app corta **antes de
+  enviar la contraseña**: es lo que protege de que alguien suplante un equipo en la red.
+- **HTTPS y FTPS** se validan primero contra las CA del sistema. Si el certificado es
+  autofirmado (lo normal en routers y NAS) se continúa, pero avisando en pantalla de que
+  la identidad del servidor no está verificada.
 
 ## Aspecto
 
