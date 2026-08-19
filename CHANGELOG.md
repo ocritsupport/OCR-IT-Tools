@@ -1,5 +1,13 @@
 # Historial de versiones
 
+## 1.3.0 — 19/08/2026
+
+- **Firma definitiva**: la app pasa a firmarse con la clave propia de OCR IT Support
+  (RSA 4096, válida hasta 2053), con los esquemas v2 y v3 de Android. A partir de aquí
+  todas las actualizaciones se instalan encima sin desinstalar.
+- Quien tuviera instalada la 1.2.1 o anterior **tiene que desinstalarla primero**: Android
+  no deja sustituir una app por otra firmada con distinta clave.
+
 ## 1.2.1 — 19/08/2026
 
 - Logotipo oficial de OCR IT Tools como icono de la aplicación.
