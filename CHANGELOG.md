@@ -1,5 +1,19 @@
 # Historial de versiones
 
+## 1.3.1 — 19/08/2026
+
+- **SCP** en el gestor de ficheros, para equipos con SSH pero sin subsistema SFTP
+  (switches, aparatos empotrados, servidores endurecidos).
+- **Aviso de versión nueva**: al abrir la app se consulta si hay una publicación más
+  reciente y, si la hay, se puede descargar e instalar desde la propia aplicación.
+- **Verificación de la clave del servidor SSH y SFTP**: la primera conexión memoriza la
+  clave del equipo y muestra su huella; si en una conexión posterior no coincide, se
+  corta antes de enviar la contraseña. Protege de que alguien suplante un servidor en la
+  red de un cliente.
+- Los certificados TLS se validan primero de forma normal en el comprobador web y en
+  FTPS; solo si no los firma una CA conocida se sigue adelante, avisándolo en pantalla,
+  en lugar de aceptarlos siempre a ciegas.
+
 ## 1.3.0 — 19/08/2026
 
 - **Firma definitiva**: la app pasa a firmarse con la clave propia de OCR IT Support
