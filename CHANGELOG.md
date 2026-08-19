@@ -1,5 +1,31 @@
 # Historial de versiones
 
+## 1.4.0 — 19/08/2026
+
+- **Lo guardado deja de estar en claro**: servidores, contraseñas, comunidades SNMP,
+  equipos de Wake-on-LAN y etiquetas se cifran con una clave del almacén de claves de
+  Android, que no se puede extraer del teléfono. Lo anterior se migra solo.
+- **Bloqueo de la app** con huella, cara o PIN, y **copia de seguridad cifrada** con
+  contraseña propia para llevarse los servidores a otro móvil. Restaurar solo añade lo que
+  falta, no borra.
+- **Diagnóstico**: recorre dirección IP, router, salida a internet, portal cautivo, DNS,
+  latencia, wifi y MTU y dice cuál es el eslabón roto. Distingue el DNS del router roto de
+  la falta de línea.
+- **Histórico de escaneos**: cada escaneo se guarda y se compara con el anterior de la
+  misma red (nuevos, ausentes y cambios de IP, nombre o puertos), comparando por MAC.
+- **Etiquetas de equipos** por MAC, que salen en la lista y en los informes.
+- **Vigilar equipo**: comprueba un host en segundo plano y avisa por notificación cuando
+  se cae o cuando vuelve.
+- **SNMP v1/v2c**: sistema, interfaces de un switch, nivel de tóner y páginas de una
+  impresora, estado de un SAI, y OID sueltos.
+- **Wi-Fi cercanas**: canal, banda, seguridad y señal de cada red, reparto por canal y
+  canal recomendado en 2,4 GHz.
+- **Túnel SSH** (redirección de puertos) para llegar a lo que solo se ve desde dentro.
+- **Código QR de la wifi** para dársela al cliente sin dictarla.
+- **Informes en CSV** además de PDF y texto, y **chuletas de comandos** en la terminal.
+- Desde el escáner se abre el escritorio remoto de un equipo con el 3389 abierto.
+- Nueva pantalla de **Ajustes** (aspecto, seguridad, copia y equipos etiquetados).
+
 ## 1.3.1 — 19/08/2026
 
 - **SCP** en el gestor de ficheros, para equipos con SSH pero sin subsistema SFTP
