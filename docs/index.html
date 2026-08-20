@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OCR IT Tools · libreta</title>
+<meta name="description" content="Libreta de campo de OCR IT Support: subredes, QR de wifi, DNS y chuletas.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="icon" href="iconos/icono-192.png">
+<link rel="apple-touch-icon" href="iconos/icono-192.png">
+<meta name="theme-color" content="#001E27">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="OCR IT Tools">
+</head>
+<body>
+
+<header>
+  <div class="marca">OCR IT TOOLS</div>
+  <div class="subtitulo">Libreta de campo</div>
+</header>
+
+<nav id="pestanas">
+  <button data-panel="subred" class="activa">Subredes</button>
+  <button data-panel="wifi">QR wifi</button>
+  <button data-panel="dns">DNS</button>
+  <button data-panel="web">Web</button>
+  <button data-panel="chuletas">Chuletas</button>
+  <button data-panel="notas">Parte</button>
+</nav>
+
+<main>
+
+  <!-- ---------------------------------------------------------- Subredes -->
+  <section id="panel-subred" class="panel activa">
+    <div class="tarjeta">
+      <label for="cidr">Dirección con máscara</label>
+      <input id="cidr" value="192.168.1.10/24" autocapitalize="off" autocomplete="off" spellcheck="false"
+             inputmode="decimal">
+      <div class="ayuda">Vale <code>192.168.1.10/24</code> o <code>192.168.1.10 255.255.255.0</code>.</div>
+    </div>
+    <div class="tarjeta" id="resultado-subred"></div>
+    <div class="tarjeta">
+      <label for="dividir">Dividir en subredes de prefijo</label>
+      <input id="dividir" type="number" min="1" max="32" value="26" inputmode="numeric">
+      <div id="resultado-dividir" class="tabla-contenedor"></div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------- Wifi -->
+  <section id="panel-wifi" class="panel">
+    <div class="tarjeta">
+      <label for="ssid">Nombre de la red (SSID)</label>
+      <input id="ssid" placeholder="WIFI-CLIENTE" autocapitalize="off" autocomplete="off" spellcheck="false">
+      <label for="clave">Contraseña</label>
+      <input id="clave" placeholder="la clave del router" autocapitalize="off" autocomplete="off" spellcheck="false">
+      <label for="seguridad">Seguridad</label>
+      <select id="seguridad">
+        <option value="WPA">WPA / WPA2 / WPA3</option>
+        <option value="WEP">WEP (antiguo)</option>
+        <option value="nopass">Sin contraseña</option>
+      </select>
+      <label class="casilla"><input type="checkbox" id="oculta"> Red oculta</label>
+    </div>
+    <div class="tarjeta centrado">
+      <div id="qr-wifi" class="qr"></div>
+      <div class="ayuda">Enséñale la pantalla al cliente: la cámara lo lee y se conecta sola.</div>
+      <button id="descargar-qr" class="secundario">Guardar como imagen</button>
+    </div>
+    <div class="tarjeta">
+      <label for="texto-libre">QR de cualquier texto o enlace</label>
+      <input id="texto-libre" placeholder="https://..." autocapitalize="off" spellcheck="false">
+      <div id="qr-texto" class="qr"></div>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------------------------- DNS -->
+  <section id="panel-dns" class="panel">
+    <div class="tarjeta">
+      <label for="dominio">Nombre o IP</label>
+      <input id="dominio" value="ocrcustomcars.com" autocapitalize="off" autocomplete="off" spellcheck="false">
+      <label for="tipo">Tipo</label>
+      <select id="tipo">
+        <option>A</option><option>AAAA</option><option>CNAME</option><option>MX</option>
+        <option>TXT</option><option>NS</option><option>SOA</option><option>SRV</option><option>PTR</option>
+      </select>
+      <button id="consultar-dns">Consultar</button>
+      <div class="ayuda">
+        Va por DNS sobre HTTPS a Cloudflare (1.1.1.1). Es lo único de red que un navegador
+        puede hacer de verdad: <strong>consulta al DNS público, no al del cliente</strong>.
+      </div>
+    </div>
+    <div class="tarjeta" id="resultado-dns"></div>
+  </section>
+
+  <!-- --------------------------------------------------------------- Web -->
+  <section id="panel-web" class="panel">
+    <div class="tarjeta">
+      <label for="url">Dirección</label>
+      <input id="url" value="https://" autocapitalize="off" autocomplete="off" spellcheck="false" inputmode="url">
+      <button id="comprobar-web">Comprobar</button>
+      <div class="ayuda aviso">
+        El navegador no deja ver el código de respuesta ni el certificado de una web ajena:
+        aquí solo se sabe <strong>si contesta y cuánto tarda</strong>. Para lo demás, la app
+        de Android o la de escritorio.
+      </div>
+    </div>
+    <div class="tarjeta" id="resultado-web"></div>
+  </section>
+
+  <!-- ---------------------------------------------------------- Chuletas -->
+  <section id="panel-chuletas" class="panel">
+    <div class="tarjeta">
+      <input id="buscar-chuleta" placeholder="Buscar comando..." autocapitalize="off" spellcheck="false">
+    </div>
+    <div id="lista-chuletas"></div>
+  </section>
+
+  <!-- ------------------------------------------------------------- Parte -->
+  <section id="panel-notas" class="panel">
+    <div class="tarjeta">
+      <label for="parte-cliente">Cliente</label>
+      <input id="parte-cliente" autocapitalize="words">
+      <label for="parte-texto">Qué se ha hecho</label>
+      <textarea id="parte-texto" rows="12" placeholder="Notas de la visita..."></textarea>
+      <div class="botones">
+        <button id="imprimir-parte">Imprimir o guardar en PDF</button>
+        <button id="borrar-parte" class="secundario">Borrar</button>
+      </div>
+      <div class="ayuda">Se guarda solo en este teléfono, según escribes.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span id="estado-conexion"></span>
+  <a href="https://github.com/ocritsupport/OCR-IT-Tools/releases">Descargar la app completa</a>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
