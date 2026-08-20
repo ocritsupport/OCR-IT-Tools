@@ -1,0 +1,17 @@
+{
+  "name": "OCR IT Tools · libreta",
+  "short_name": "OCR IT Tools",
+  "description": "Libreta de campo de OCR IT Support: subredes, QR de wifi, DNS, chuletas y parte de trabajo.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#001E27",
+  "theme_color": "#001E27",
+  "lang": "es",
+  "icons": [
+    { "src": "iconos/icono-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "iconos/icono-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "iconos/icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
