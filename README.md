@@ -17,6 +17,17 @@
 
 ---
 
+## Libreta de campo en el navegador
+
+Para lo que se hace de pie en casa de un cliente —calcular una subred, dar la clave de la
+wifi con un QR, mirar un DNS o consultar una chuleta— hay una web que se instala en la
+pantalla de inicio y funciona sin cobertura:
+
+**https://ocritsupport.github.io/OCR-IT-Tools/**
+
+En el iPhone: abrirla en Safari → compartir → *Añadir a pantalla de inicio*. No sustituye a
+la app: un navegador no puede hacer ping, escanear la red ni hablar SNMP o SSH.
+
 ## Descarga
 
 El instalador está en la sección **[Releases](../../releases)**: descarga el `.apk` en el
